@@ -1,0 +1,25 @@
+{
+  "name": "Magic-Mirror-Module-Flickr",
+  "version": "1.0.0",
+  "description": "Grab urls from your photostream",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamLewis0602/MMM-Traffic"
+  },
+  "keywords": [
+    "magic mirror",
+    "smart mirror",
+    "traffic",
+    "module"
+  ],
+  "author": "Jim Kapsalis",
+  "contributors": "https://github.com/SamLewis0602/MMM-Traffic/graphs/contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SamLewis0602/MMM-Traffic/issues"
+  },
+  "homepage": "https://github.com/SamLewis0602/MMM-Traffic#readme",
+  "dependencies": {
+    "request": "latest"
+    }
+}
