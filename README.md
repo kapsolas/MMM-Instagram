@@ -42,8 +42,8 @@ Here is an example of an entry in `config.js`
 		min_timestamp: 0,
 		animationSpeed: 2500,
 		updateInterval: 12500,
-		instaMaxWidth: '20%', // Optional parameter
-		instaMaxHeight: '200px' // Optional parameter
+		instaMaxWidth: '20%', // Optional parameter, can be relative (percentage) or absolute (px)
+		instaMaxHeight: '200px' // Optional parameter, can be absolute only (px)
 	}
 },
 ```
