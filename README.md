@@ -28,6 +28,8 @@ The entry in `config.js` can include the following options:
 |`min_timestamp`|Set to 0 to pull images from when you created the account.<br><br>This value is **REQUIRED**|
 |`animationSpeed`|How long the fade out and fade in of photos should take.<br><br>This value is **REQUIRED**|
 |`updateInterval`|How long before refreshing image list.<br><br>This value is **REQUIRED**|
+|`instaMaxWidth`|Specify maximum width of the retrieved images. Can be absolute (e.g. '200px') or relative (e.g. '50%').<br><br>This value is **OPTIONAL**|
+|`instaMaxHeight`|Specify maximum height of the retrieved images. Can only be absolute (e.g. '100px').<br><br>This value is **OPTIONAL**|
 
 Here is an example of an entry in `config.js`
 ```
@@ -39,7 +41,9 @@ Here is an example of an entry in `config.js`
 		count: 200,  
 		min_timestamp: 0,
 		animationSpeed: 2500,
-		updateInterval: 12500
+		updateInterval: 12500,
+		instaMaxWidth: '20%', // Optional parameter, can be relative (percentage) or absolute (px)
+		instaMaxHeight: '200px' // Optional parameter, can be absolute only (px)
 	}
 },
 ```
