@@ -40,13 +40,15 @@
                 {
                     var type = items[i].type;
                     var media = items[i].images.low_resolution.url;
+                    var text = items[i].caption.text;
                     
-                    //console.log("type: " + type + "\nmedia: " + media);
+                    console.log("type: " + type + "\nmedia: " + media +"\ntext:" + text);
                     
                     // create a new array for each images object in the dictionary
                     images.photo.push( {
                         "type" : type,
-                        "photolink" : media
+                        "photolink" : media,
+                        "captureText": text
                     });
                 }
                 //console.log("count: " + images.photo.length);

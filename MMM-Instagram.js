@@ -18,7 +18,9 @@ Module.register('MMM-Instagram', {
         access_token: '',
         count: 200,
         min_timestamp: 0,
-        loadingText: 'Loading...'
+        loadingText: 'Loading...',
+        showCaptureText: false,
+        maxSizeCaptureText: 200
     },
     
     // Define required scripts
@@ -80,11 +82,18 @@ Module.register('MMM-Instagram', {
         var imageLink = document.createElement('div');
         //imageLink.innerHTML = "<img src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'>";
         imageLink.id = "MMM-Instagram-image";
-        imageLink.innerHTML = "<img src='" + tempimage.photolink + "'>";
-        
+		if (showCaptureText) {
+			element = "<figure><img src='" + tempimage.photolink + "'>";
+            element += "<figcaption>" + tempimage.captureText + "</figcaption></figure>";
+            console.log(element);
+            imageLink.innerHTML = element;
+		} else {
+			imageLink.innerHTML = "<img src='" + tempimage.photolink + "'>";
+        }
+
         imageDisplay.appendChild(imageLink);
         wrapper.appendChild(imageDisplay);
-       
+
         return wrapper;
     },
 
