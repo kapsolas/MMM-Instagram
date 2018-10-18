@@ -82,17 +82,17 @@ Module.register('MMM-Instagram', {
         var imageLink = document.createElement('div');
         //imageLink.innerHTML = "<img src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'>";
         imageLink.id = "MMM-Instagram-image";
+        element = "";
 		if (showCaptureText) {
 			element = "<figure><img src='" + tempimage.photolink + "'>";
-            element += "<figcaption>" + tempimage.captureText + "</figcaption></figure>";
-            console.log(element);
-            imageLink.innerHTML = element;
+            element += "<figcaption>" + tempimage.captureText.substring(0, this.config.maxSizeCaptureText) + "</figcaption></figure>";
 		} else {
-			imageLink.innerHTML = "<img src='" + tempimage.photolink + "'>";
+			element = "<img src='" + tempimage.photolink + "'>";
         }
-
-        imageDisplay.appendChild(imageLink);
-        wrapper.appendChild(imageDisplay);
+        console.log(element);
+		imageLink.innerHTML = element;
+		imageDisplay.appendChild(imageLink);
+		wrapper.appendChild(imageDisplay);
 
         return wrapper;
     },
