@@ -28,6 +28,8 @@ The entry in `config.js` can include the following options:
 |`min_timestamp`|Set to 0 to pull images from when you created the account.<br><br>This value is **REQUIRED**|
 |`animationSpeed`|How long the fade out and fade in of photos should take.<br><br>This value is **REQUIRED**|
 |`updateInterval`|How long before refreshing image list.<br><br>This value is **REQUIRED**|
+|`showCaptureText`|Show legend of picture|
+|`maxSizeCaptureText`|Limit the size of legend of picture,<br><br>Applies only on showCaptureText=true|
 
 Here is an example of an entry in `config.js`
 ```
@@ -39,7 +41,9 @@ Here is an example of an entry in `config.js`
 		count: 200,  
 		min_timestamp: 0,
 		animationSpeed: 2500,
-		updateInterval: 12500
+		updateInterval: 12500,
+        showCaptureText: true,
+        maxSizeCaptureText: 200
 	}
 },
 ```
