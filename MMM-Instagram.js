@@ -84,6 +84,8 @@ Module.register('MMM-Instagram', {
         //imageLink.innerHTML = "<img src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'>";
         imageLink.id = "MMM-Instagram-image";
         var tagBase = "";
+        var fig = document.createElement("figure");
+        
         if (this.config.showCaptureText) {
             var captureText = tempimage.captureText;
             if (captureText.length>this.config.maxSizeCaptureText) {
