@@ -87,18 +87,34 @@ Module.register('MMM-Instagram', {
         imageLink.id = "MMM-Instagram-image";
         var tagBase = "";
         var fig = document.createElement("figure");
-		if (temp)
+        // check if the type is a video and if wants to show video
+        var item = this.getImageOrVideo(tempimage);//(tempimage.type=='video' && this.config.showVideo? document.createElement("video"): document.createElement("img") );
+
         if (this.config.showCaptureText) {
             var captureText = tempimage.captureText;
             if (captureText.length>this.config.maxSizeCaptureText) {
                 captureText = captureText.substring(0,this.config.maxSizeCaptureText)+"...";
             }
-            tagBase = "<figure><img src='" + (this.config.useLowResolution?tempimage.photolinkL:tempimage.photolinkH) + "'>";
-            tagBase += "<figcaption>" + 
-                "<div class='small light'>" +
-				"<img src='https://www.instagram.com/favicon.ico'>" +
-                "&nbsp;Instagram</div>" +
-				captureText + "</figcaption></figure>";
+            //tagBase = "<figure><img src='" + (this.config.useLowResolution?tempimage.photolinkL:tempimage.photolinkH) + "'>";
+            var figCap = document.createElement("figcaption");
+            var textNode = document.createTextNode(captureText);
+            var innerDiv = document.createElement("div");
+            innerDiv.className= "small light";
+            var imgInsta = document.createElement("img");
+            imgInsta.src = "https://www.instagram.com/favicon.ico";
+            var textInsta = document.createTextNode("&nbsp;Instagram");
+            innerDiv.appendChild(imgInsta);
+            innerDiv.appendChild(textInsta);
+
+
+            // tagBase += "<figcaption>" + 
+            //    "<div class='small light'>" +
+            //	"<img src='https://www.instagram.com/favicon.ico'>" +
+            //    "&nbsp;Instagram</div>" +
+            //	captureText + "</figcaption></figure>";
+            figCap.appendChild(innerDiv);
+            figCap.appendChild(textNode);
+            fig.appendChild(figCap);
         } else {
 			tagBase = "<img src='" + tempimage.photolinkL + "'>";
 		}
@@ -108,6 +124,20 @@ Module.register('MMM-Instagram', {
 		wrapper.appendChild(imageDisplay);
 
         return wrapper;
+    },
+
+    getImageOrVideo:function(item) {
+        var result;
+        if (item.type == 'video' && this.config.showvideo) {
+            result = document.createElement("video");
+            result.src = (this.config.useLowResolution?item.videoL:item.videoH);
+            result.setAttribute("autoplay");
+        }
+        if (item.type == 'image') {
+            result = document.createElement("img");
+            result.src = (this.config.useLowResolution?item.photolinkL:item.photolinkH);
+        }
+        return result;
     },
 
     /* scheduleUpdateInterval()
