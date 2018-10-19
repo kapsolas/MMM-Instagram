@@ -82,17 +82,23 @@ Module.register('MMM-Instagram', {
         var imageLink = document.createElement('div');
         //imageLink.innerHTML = "<img src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'>";
         imageLink.id = "MMM-Instagram-image";
-        element = "";
-        console.log(tempimage);
-		if (showCaptureText) {
-			element = "<figure><img src='" + tempimage.photolink + "'>";
-            element += "<figcaption>" + tempimage.captureText.substring(0, this.config.maxSizeCaptureText) + "</figcaption></figure>";
-		} else {
-			element = "<img src='" + tempimage.photolink + "'>";
-        }
-        console.log("-----");
-        console.log(element);
-		imageLink.innerHTML = element;
+        var tagBase = "";
+        if (this.config.showCaptureText) {
+            var captureText = tempimage.captureText;
+            if (captureText.length>this.config.maxSizeCaptureText) {
+                captureText = captureText.substring(0,this.config.maxSizeCaptureText)+"...";
+            }
+            tagBase = "<figure><img src='" + tempimage.photolinkH + "'>";
+            tagBase += "<figcaption>" + 
+                "<div class='small light'>" +
+				"<img src='https://www.instagram.com/favicon.ico'>" +
+                "&nbsp;Instagram</div>" +
+				captureText + "</figcaption></figure>";
+        } else {
+			tagBase = "<img src='" + tempimage.photolinkL + "'>";
+		}
+		imageLink.innerHTML = tagBase;
+        //imageLink.innerHTML = "<img src='" + tempimage.photolink + "'>";
 		imageDisplay.appendChild(imageLink);
 		wrapper.appendChild(imageDisplay);
 

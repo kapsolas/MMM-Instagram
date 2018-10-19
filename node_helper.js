@@ -39,15 +39,17 @@
                 for (var i in items)
                 {
                     var type = items[i].type;
-                    var media = items[i].images.low_resolution.url;
+                    var mediaL = items[i].images.low_resolution.url;
+                    var mediaH = items[i].images.standard_resolution.url;
                     var text = items[i].caption.text;
                     
-                    console.log("type: " + type + "\nmedia: " + media +"\ntext:" + text);
+                    //console.log("type: " + type + "\nmedia: " + media +"\ntext:" + text);
                     
                     // create a new array for each images object in the dictionary
                     images.photo.push( {
                         "type" : type,
-                        "photolink" : media,
+                        "photolinkL" : mediaL,
+                        "photolinkH": mediaH,
                         "captureText": text
                     });
                 }
