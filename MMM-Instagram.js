@@ -21,7 +21,9 @@ Module.register('MMM-Instagram', {
         loadingText: 'Loading...',
         useLowResolution: true,
         showCaptureText: false,
-        maxSizeCaptureText: 200
+        maxSizeCaptureText: 200,
+        showVideo: true,
+        videoStdRes: false,
     },
     
     // Define required scripts
@@ -85,7 +87,7 @@ Module.register('MMM-Instagram', {
         imageLink.id = "MMM-Instagram-image";
         var tagBase = "";
         var fig = document.createElement("figure");
-        
+		if (temp)
         if (this.config.showCaptureText) {
             var captureText = tempimage.captureText;
             if (captureText.length>this.config.maxSizeCaptureText) {
