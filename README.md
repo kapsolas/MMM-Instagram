@@ -13,11 +13,12 @@ The entry in `config.js` can include the following options:
             module: 'MMM-Instagram',
             position: 'top_left',
             config: {
-                access_token: '1160247792.b119586.49fa97770ee34deb92e621069c760cee',
+                access_token: '<ACCESS_TOKEN>',
                 count: 200,
                 min_timestamp: 0,
                 animationSpeed: 2500,
-                updateInterval: 12000
+                updateInterval: 12000,
+                useLowResolution: true,
             }
 
 
@@ -28,7 +29,8 @@ The entry in `config.js` can include the following options:
 |`min_timestamp`|Set to 0 to pull images from when you created the account.<br><br>This value is **REQUIRED**|
 |`animationSpeed`|How long the fade out and fade in of photos should take.<br><br>This value is **REQUIRED**|
 |`updateInterval`|How long before refreshing image list.<br><br>This value is **REQUIRED**|
-|`showCaptureText`|Show legend of picture|
+|`useLowResolution`|Use images on Low Resolution.|
+|`showCaptureText`|Show subtitle of picture.|
 |`maxSizeCaptureText`|Limit the size of legend of picture,<br><br>Applies only on showCaptureText=true|
 
 Here is an example of an entry in `config.js`
@@ -38,10 +40,11 @@ Here is an example of an entry in `config.js`
 	position: 'top_right',
 	config: {
 		access_token: 'API_KEY from instagram',
-		count: 200,  
+		count: 200,
 		min_timestamp: 0,
 		animationSpeed: 2500,
 		updateInterval: 12500,
+        useLowResolution: true,
         showCaptureText: true,
         maxSizeCaptureText: 200
 	}

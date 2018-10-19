@@ -19,6 +19,7 @@ Module.register('MMM-Instagram', {
         count: 200,
         min_timestamp: 0,
         loadingText: 'Loading...',
+        useLowResolution: true,
         showCaptureText: false,
         maxSizeCaptureText: 200
     },
@@ -88,7 +89,7 @@ Module.register('MMM-Instagram', {
             if (captureText.length>this.config.maxSizeCaptureText) {
                 captureText = captureText.substring(0,this.config.maxSizeCaptureText)+"...";
             }
-            tagBase = "<figure><img src='" + tempimage.photolinkH + "'>";
+            tagBase = "<figure><img src='" + (this.config.useLowResolution?tempimage.photolinkL:tempimage.photolinkH) + "'>";
             tagBase += "<figcaption>" + 
                 "<div class='small light'>" +
 				"<img src='https://www.instagram.com/favicon.ico'>" +
