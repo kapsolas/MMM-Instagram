@@ -55,5 +55,4 @@ Here is an example of an entry in `config.js`
 - [Sam Lewis](https://github.com/SamLewis0602/) for creating the [MMM-Traffic](https://github.com/SamLewis0602/MMM-Traffic) module that I used as guidance in creating this module.
 
 ## Donations Welcome
-- DOGE - Donations
-DOGE - DDNabBuKR9EkHzf1fmfRm8Q5aMvnU9s97k
+- DOGE - DDNabBuKR9EkHzf1fmfRm8Q5aMvnU9s97k
