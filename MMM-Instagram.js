@@ -11,28 +11,28 @@ Module.register('MMM-Instagram', {
 
     defaults: {
         format: 'json',
-        lang: 'en-us',
+        lang: config.language, // using language on config
         id: '',
         animationSpeed: 1000,
         updateInterval: 60000, // 10 minutes
         access_token: '',
         count: 200,
         min_timestamp: 0,
-        loadingText: 'Loading...'
+        // Removed, takes from translation loadingText: 'Loading...'
     },
-    
+
     // Define required scripts
     getScripts: function() {
         return ["moment.js"];
     },
-    
+
     /*
     // Define required translations
     getTranslations: function() {
         return false;
     },
     */
-    
+
     // Define start sequence
     start: function() {
         Log.info('Starting module: ' + this.name);
@@ -65,7 +65,7 @@ Module.register('MMM-Instagram', {
         var imageDisplay = document.createElement('div'); //support for config.changeColor
 
         if (!this.loaded) {
-            wrapper.innerHTML = this.config.loadingText;
+            wrapper.innerHTML = this.translate("LOADING"); //this.config.loadingText;
             return wrapper;
         }
         
